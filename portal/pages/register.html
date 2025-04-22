@@ -1,0 +1,78 @@
+<div class="auth-container">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-sm border-0 rounded-4 overflow-hidden" data-aos="fade-up">
+                    <div class="card-header mint-gradient py-4 text-center text-white">
+                        <h2 class="fs-4 fw-bold mb-0">
+                            Side <span class="title-underline-white">to</span> CEO
+                        </h2>
+                        <p class="mb-0">Create Your Account</p>
+                    </div>
+                    <div class="card-body p-4">
+                        <form id="registerForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="password" placeholder="Create a password" required>
+                                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-strength mt-2">
+                                    <div class="progress" style="height: 5px;">
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <small class="text-muted">Password strength: Weak</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                                <label class="form-check-label" for="termsCheck">
+                                    I agree to the <a href="#" class="text-mint">Terms of Service</a> and <a href="#" class="text-mint">Privacy Policy</a>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-mint w-100 py-2 mb-3">Create Account</button>
+                            <div class="text-center">
+                                <p class="mb-3">Or register with</p>
+                                <button type="button" class="btn btn-outline-secondary me-2">
+                                    <i class="bi bi-google"></i> Google
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer bg-white text-center py-3 border-0">
+                        <p class="mb-0">Already have an account? <a href="#/login" class="text-mint">Login</a></p>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="/" class="text-decoration-none text-muted">
+                        <i class="bi bi-arrow-left"></i> Back to main site
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Side to CEO Portal</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+    <style>
+        /* Additional dashboard-specific styles */
+        .progress-circle {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #f8f9fa;
+        }
+        
+        .progress-circle-left, .progress-circle-right {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .progress-circle-left {
+            clip: rect(0, 60px, 120px, 0);
+        }
+        
+        .progress-circle-right {
+            clip: rect(0, 120px, 120px, 60px);
+        }
+        
+        .progress-circle-bar {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border: 10px solid var(--mint-secondary);
+            border-radius: 50%;
+            top: 0;
+            left: 0;
+        }
+        
+        .progress-circle-left .progress-circle-bar {
+            clip: rect(0, 60px, 120px, 0);
+            transform-origin: center right;
+            transform: rotate(0deg);
+        }
+        
+        .progress-circle-right .progress-circle-bar {
+            clip: rect(0, 120px, 120px, 60px);
+            transform-origin: center left;
+            transform: rotate(0deg);
+        }
+        
+        .progress-circle-value {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: white;
+            font-weight: bold;
+            color: var(--mint-secondary);
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .progress-circle-value span {
+            font-size: 0.75rem;
+            color: #6c757d;
+            font-weight: normal;
+        }
+        
+        .calendar-icon {
+            width: 50px;
+            height: 60px;
+            background-color: white;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .calendar-month {
+            background-color: var(--mint-secondary);
+            color: white;
+            text-align: center;
+            padding: 2px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+        
+        .calendar-day {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #495057;
+        }
+        
+        .notification-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+        
+        .avatar-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #e9ecef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="portal-container">
+        <!-- Include sidebar -->
+        <div class="portal-sidebar-container" id="sidebarContainer"></div>
+        
+        <div class="portal-content">
+            <!-- Include header -->
+            <div id="headerContainer"></div>
+            
+            <main class="portal-main p-4">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h1 class="fs-4 fw-bold">Dashboard</h1>
+                        <div>
+                            <button class="btn btn-mint btn-sm">
+                                <i class="bi bi-plus-circle me-1"></i> New Service
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Welcome Card -->
+                    <div class="card border-0 shadow-sm mb-4" data-aos="fade-up">
+                        <div class="card-body p-4">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h2 class="fs-5 fw-bold text-mint mb-2">Welcome back, John!</h2>
+                                    <p class="mb-3">Your brand journey is progressing well. You have 2 active services and 1 upcoming consultation.</p>
+                                    <a href="#/tracking" class="btn btn-sm btn-outline-mint">View Progress</a>
+                                </div>
+                                <div class="col-md-4 text-center text-md-end">
+                                    <div class="progress-circle mx-auto me-md-0" data-value="65">
+                                        <span class="progress-circle-left">
+                                            <span class="progress-circle-bar"></span>
+                                        </span>
+                                        <span class="progress-circle-right">
+                                            <span class="progress-circle-bar"></span>
+                                        </span>
+                                        <div class="progress-circle-value">
+                                            <div>
+                                                65%<br>
+                                                <span>Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Actions -->
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <h3 class="fs-5 fw-bold mb-3">Quick Actions</h3>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mb-3" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card border-0 shadow-sm h-100 hover-lift">
+                                <div class="card-body text-center p-4">
+                                    <div class="icon-circle mint-gradient mx-auto mb-3">
+                                        <i class="bi bi-calendar-check text-white"></i>
+                                    </div>
+                                    <h4 class="fs-6 fw-bold">Schedule Consultation</h4>
+                                    <p class="small text-muted mb-0">Book time with your consultant</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mb-3" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card border-0 shadow-sm h-100 hover-lift">
+                                <div class="card-body text-center p-4">
+                                    <div class="icon-circle mint-gradient mx-auto mb-3">
+                                        <i class="bi bi-file-earmark-text text-white"></i>
+                                    </div>
+                                    <h4 class="fs-6 fw-bold">Complete Forms</h4>
+                                    <p class="small text-muted mb-0">2 forms need your attention</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mb-3" data-aos="fade-up" data-aos-delay="300">
+                            <div class="card border-0 shadow-sm h-100 hover-lift">
+                                <div class="card-body text-center p-4">
+                                    <div class="icon-circle mint-gradient mx-auto mb-3">
+                                        <i class="bi bi-cloud-arrow-up text-white"></i>
+                                    </div>
+                                    <h4 class="fs-6 fw-bold">Upload Files</h4>
+                                    <p class="small text-muted mb-0">Share your brand assets</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mb-3" data-aos="fade-up" data-aos-delay="400">
+                            <div class="card border-0 shadow-sm h-100 hover-lift">
+                                <div class="card-body text-center p-4">
+                                    <div class="icon-circle mint-gradient mx-auto mb-3">
+                                        <i class="bi bi-chat-dots text-white"></i>
+                                    </div>
+                                    <h4 class="fs-6 fw-bold">Message Consultant</h4>
+                                    <p class="small text-muted mb-0">Get answers to your questions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Active Services -->
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <h3 class="fs-5 fw-bold mb-3">Active Services</h3>
+                        </div>
+                        <div class="col-md-6 mb-3" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-header mint-gradient" style="height: 0.5rem; padding: 0;"></div>
+                                <div class="card-body p-4">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <h4 class="fs-6 fw-bold text-mint">Brand Strategy Development</h4>
+                                        <span class="badge bg-success">In Progress</span>
+                                    </div>
+                                    <p class="small text-muted mb-3">Creating a comprehensive brand strategy to position your business for success.</p>
+                                    <div class="progress mb-3" style="height: 6px;">
+                                        <div class="progress-bar bg-mint" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center small text-muted">
+                                        <span>Started: May 15, 2023</span>
+                                        <span>75% Complete</span>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white border-0 p-4">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-circle me-2">
+                                                <span class="avatar-initials">SA</span>
+                                            </div>
+                                            <span class="small">Sarah Adams</span>
+                                        </div>
+                                        <a href="#/tracking" class="btn btn-sm btn-outline-mint">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-header mint-gradient" style="height: 0.5rem; padding: 0;"></div>
+                                <div class="card-body p-4">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <h4 class="fs-6 fw-bold text-mint">Social Media Strategy</h4>
+                                        <span class="badge bg-warning text-dark">Awaiting Input</span>
+                                    </div>
+                                    <p class="small text-muted mb-3">Developing a social media strategy to increase your brand visibility and engagement.</p>
+                                    <div class="progress mb-3" style="height: 6px;">
+                                        <div class="progress-bar bg-mint" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center small text-muted">
+                                        <span>Started: June 2, 2023</span>
+                                        <span>40% Complete</span>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white border-0 p-4">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-circle me-2">
+                                                <span class="avatar-initials">MO</span>
+                                            </div>
+                                            <span class="small">Michael Osei</span>
+                                        </div>
+                                        <a href="#/tracking" class="btn btn-sm btn-outline-mint">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Upcoming Consultations -->
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <h3 class="fs-5 fw-bold mb-3">Upcoming Consultations</h3>
+                        </div>
+                        <div class="col-12" data-aos="fade-up">
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover mb-0">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th scope="col">Date & Time</th>
+                                                    <th scope="col">Consultant</th>
+                                                    <th scope="col">Service</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="calendar-icon me-3">
+                                                                <div class="calendar-month">JUN</div>
+                                                                <div class="calendar-day">15</div>
+                                                            </div>
+                                                            <span>10:00 AM - 11:00 AM</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="avatar-circle me-2">
+                                                                <span class="avatar-initials">SA</span>
+                                                            </div>
+                                                            <span>Sarah Adams</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>Brand Strategy Review</td>
+                                                    <td><span class="badge bg-success">Confirmed</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-mint me-1">
+                                                            <i class="bi bi-calendar-check"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger">
+                                                            <i class="bi bi-x-circle"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="calendar-icon me-3">
+                                                                <div class="calendar-month">JUN</div>
+                                                                <div class="calendar-day">22</div>
+                                                            </div>
+                                                            <span>2:00 PM - 3:00 PM</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="avatar-circle me-2">
+                                                                <span class="avatar-initials">MO</span>
+                                                            </div>
+                                                            <span>Michael Osei</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>Social Media Strategy Planning</td>
+                                                    <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-mint me-1">
+                                                            <i class="bi bi-calendar-check"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger">
+                                                            <i class="bi bi-x-circle"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white border-0 p-3 text-center">
+                                    <a href="#" class="text-mint text-decoration-none">
+                                        View All Consultations <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Notifications -->
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="fs-5 fw-bold mb-3">Recent Notifications</h3>
+                        </div>
+                        <div class="col-12" data-aos="fade-up">
+                            <div class="card border-0 shadow-sm">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item p-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="notification-icon bg-success-light text-success me-3">
+                                                <i class="bi bi-check-circle"></i>
+                                            </div>
+                                            <div>
+                                                <p class="mb-0">Your brand questionnaire has been reviewed.</p>
+                                                <small class="text-muted">2 hours ago</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item p-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="notification-icon bg-primary-light text-primary me-3">
+                                                <i class="bi bi-chat-dots"></i>
+                                            </div>
+                                            <div>
+                                                <p class="mb-0">New message from Sarah Adams regarding your brand strategy.</p>
+                                                <small class="text-muted">Yesterday</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item p-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="notification-icon bg-warning-light text-warning me-3">
+                                                <i class="bi bi-calendar-event"></i>
+                                            </div>
+                                            <div>
+                                                <p class="mb-0">Reminder: Your consultation is scheduled for tomorrow at 10:00 AM.</p>
+                                                <small class="text-muted">Yesterday</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item p-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="notification-icon bg-info-light text-info me-3">
+                                                <i class="bi bi-file-earmark-text"></i>
+                                            </div>
+                                            <div>
+                                                <p class="mb-0">New deliverable available: Brand Style Guide Draft.</p>
+                                                <small class="text-muted">2 days ago</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white border-0 p-3 text-center">
+                                    <a href="#" class="text-mint text-decoration-none">
+                                        View All Notifications <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
+            <!-- Include footer -->
+            <div id="footerContainer"></div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Dashboard page loaded");
+            
+            // Load components
+            loadComponents();
+            
+            // Initialize AOS animations
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+            
+            // Initialize progress circles
+            initProgressCircles();
+        });
+        
+        // Function to load components
+        async function loadComponents() {
+            try {
+                // Load header
+                const headerContainer = document.getElementById('headerContainer');
+                if (headerContainer) {
+                    const headerResponse = await fetch('../components/header.html');
+                    if (!headerResponse.ok) throw new Error(`HTTP error! status: ${headerResponse.status}`);
+                    headerContainer.innerHTML = await headerResponse.text();
+                    console.log("Header loaded successfully");
+                }
+                
+                // Load sidebar
+                const sidebarContainer = document.getElementById('sidebarContainer');
+                if (sidebarContainer) {
+                    const sidebarResponse = await fetch('../components/sidebar.html');
+                    if (!sidebarResponse.ok) throw new Error(`HTTP error! status: ${sidebarResponse.status}`);
+                    sidebarContainer.innerHTML = await sidebarResponse.text();
+                    console.log("Sidebar loaded successfully");
+                    
+                    // Add active class to current sidebar link
+                    setTimeout(() => {
+                        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+                        sidebarLinks.forEach(link => {
+                            if (link.getAttribute('href') === '#/dashboard') {
+                                link.classList.add('active');
+                            }
+                        });
+                    }, 100);
+                }
+                
+                // Load footer
+                const footerContainer = document.getElementById('footerContainer');
+                if (footerContainer) {
+                    const footerResponse = await fetch('../components/footer.html');
+                    if (!footerResponse.ok) throw new Error(`HTTP error! status: ${footerResponse.status}`);
+                    footerContainer.innerHTML = await footerResponse.text();
+                    console.log("Footer loaded successfully");
+                }
+            } catch (error) {
+                console.error("Error loading components:", error);
+            }
+        }
+        
+        // Function to initialize progress circles
+        function initProgressCircles() {
+            const progressCircles = document.querySelectorAll('.progress-circle');
+            progressCircles.forEach(circle => {
+                const value = circle.getAttribute('data-value');
+                const leftTransform = value <= 50 ? 0 : (value - 50) * 3.6;
+                const rightTransform = value <= 50 ? value * 3.6 : 180;
+                
+                circle.querySelector('.progress-circle-right .progress-circle-bar').style.transform = `rotate(${rightTransform}deg)`;
+                circle.querySelector('.progress-circle-left .progress-circle-bar').style.transform = `rotate(${leftTransform}deg)`;
+                
+                // Set the color
+                circle.querySelectorAll('.progress-circle-bar').forEach(bar => {
+                    bar.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--mint-secondary');
+                });
+            });
+        }
+    </script>
+</body>
+</html>

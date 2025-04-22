@@ -1,0 +1,115 @@
+<div class="portal-sidebar">
+    <div class="sidebar-header">
+        <a href="#/dashboard" class="sidebar-brand">
+            <img src="../assets/images/logo.png" alt="Side to CEO" class="sidebar-logo">
+        </a>
+        <button class="btn-close d-md-none" id="sidebarClose"></button>
+    </div>
+    <div class="sidebar-content">
+        <ul class="sidebar-nav">
+            <li class="sidebar-item">
+                <a href="#/dashboard" class="sidebar-link">
+                    <i class="bi bi-grid-1x2"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#/services" class="sidebar-link">
+                    <i class="bi bi-briefcase"></i>
+                    <span>My Services</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#/tracking" class="sidebar-link">
+                    <i class="bi bi-bar-chart"></i>
+                    <span>Progress Tracking</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#/forms" class="sidebar-link">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span>Forms</span>
+                    <span class="badge bg-danger rounded-pill ms-auto">2</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#/deliverables" class="sidebar-link">
+                    <i class="bi bi-box"></i>
+                    <span>Deliverables</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#/consultations" class="sidebar-link">
+                    <i class="bi bi-calendar-check"></i>
+                    <span>Consultations</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#/messages" class="sidebar-link">
+                    <i class="bi bi-chat-dots"></i>
+                    <span>Messages</span>
+                    <span class="badge bg-success rounded-pill ms-auto">3</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#/files" class="sidebar-link">
+                    <i class="bi bi-folder"></i>
+                    <span>Files</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#/billing" class="sidebar-link">
+                    <i class="bi bi-credit-card"></i>
+                    <span>Billing</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#/support" class="sidebar-link">
+                    <i class="bi bi-question-circle"></i>
+                    <span>Support</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="sidebar-footer">
+        <div class="upgrade-card">
+            <div class="upgrade-icon">
+                <i class="bi bi-star"></i>
+            </div>
+            <h5 class="upgrade-title">Upgrade Plan</h5>
+            <p class="upgrade-text">Unlock premium features and get more out of your brand journey.</p>
+            <a href="#/checkout" class="btn btn-sm btn-mint w-100">Upgrade Now</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Sidebar toggle functionality
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebarClose = document.getElementById('sidebarClose');
+        const sidebarContainer = document.querySelector('.portal-sidebar-container');
+        
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', function() {
+                sidebarContainer.classList.toggle('sidebar-mobile-open');
+            });
+        }
+        
+        if (sidebarClose) {
+            sidebarClose.addEventListener('click', function() {
+                sidebarContainer.classList.remove('sidebar-mobile-open');
+            });
+        }
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth < 768 && 
+                !event.target.closest('.portal-sidebar') && 
+                !event.target.closest('#sidebarToggle') &&
+                sidebarContainer.classList.contains('sidebar-mobile-open')) {
+                sidebarContainer.classList.remove('sidebar-mobile-open');
+            }
+        });
+    });
+</script>

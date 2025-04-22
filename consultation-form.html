@@ -1,0 +1,339 @@
+&lt;!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Free Consultation - Side to CEO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+        .consultation-form-container {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9f8f5 100%);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin: 80px auto;
+            max-width: 800px;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-header h2 {
+            color: #2a9d8f;
+            font-weight: 700;
+        }
+        
+        .form-header p {
+            color: #666;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: #2a9d8f;
+        }
+        
+        .form-control {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 12px 15px;
+        }
+        
+        .form-control:focus {
+            border-color: #5ebfb5;
+            box-shadow: 0 0 0 0.25rem rgba(94, 191, 181, 0.25);
+        }
+        
+        .btn-submit {
+            background: linear-gradient(135deg, #5ebfb5 0%, #2a9d8f 100%);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(42, 157, 143, 0.3);
+        }
+        
+        .btn-back {
+            background: transparent;
+            color: #2a9d8f;
+            border: 1px solid #2a9d8f;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-back:hover {
+            background-color: rgba(42, 157, 143, 0.1);
+        }
+        
+        .required-field::after {
+            content: "*";
+            color: #e76f51;
+            margin-left: 4px;
+        }
+        
+        .form-text {
+            color: #6c757d;
+            font-size: 0.875rem;
+        }
+        
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .success-icon {
+            font-size: 60px;
+            color: #2a9d8f;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    &lt;!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>Side to CEO</h1>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#pricing">Pricing</a></li>
+                        <li><a href="index.html#testimonials">Testimonials</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                        <li><a href="portal/index.html" class="btn-primary">Client Login</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    &lt;!-- Consultation Form -->
+    <section class="consultation-section">
+        <div class="container">
+            <div class="consultation-form-container" data-aos="fade-up">
+                <div class="form-content" id="consultationForm">
+                    <div class="form-header">
+                        <h2>Book Your Free Consultation</h2>
+                        <p>Fill out the form below and one of our expert consultants will get in touch with you shortly.</p>
+                    </div>
+                    <form id="bookingForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name" class="form-label required-field">Full Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Your full name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email" class="form-label required-field">Email Address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Your email address" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phone" class="form-label required-field">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="Your phone number" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="service" class="form-label required-field">Service of Interest</label>
+                                    <select class="form-control" id="service" required>
+                                        <option value="" selected disabled>Select a service</option>
+                                        <option value="Business Strategy">Business Strategy</option>
+                                        <option value="Marketing & Growth">Marketing & Growth</option>
+                                        <option value="Financial Planning">Financial Planning</option>
+                                        <option value="Operations Optimization">Operations Optimization</option>
+                                        <option value="Leadership Development">Leadership Development</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="date" class="form-label required-field">Preferred Date</label>
+                                    <input type="date" class="form-control" id="date" required min="">
+                                    <small class="form-text">Please select a date at least 2 days from today.</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="time" class="form-label required-field">Preferred Time</label>
+                                    <select class="form-control" id="time" required>
+                                        <option value="" selected disabled>Select a time slot</option>
+                                        <option value="9:00 AM">9:00 AM</option>
+                                        <option value="10:00 AM">10:00 AM</option>
+                                        <option value="11:00 AM">11:00 AM</option>
+                                        <option value="1:00 PM">1:00 PM</option>
+                                        <option value="2:00 PM">2:00 PM</option>
+                                        <option value="3:00 PM">3:00 PM</option>
+                                        <option value="4:00 PM">4:00 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="challenge" class="form-label required-field">Your Biggest Challenge</label>
+                            <textarea class="form-control" id="challenge" rows="4" placeholder="Please describe the biggest challenge you're facing in your business" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="goals" class="form-label">Your Goals</label>
+                            <textarea class="form-control" id="goals" rows="3" placeholder="What are you hoping to achieve with our consultation?"></textarea>
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="consent" required>
+                            <label class="form-check-label" for="consent">I consent to Side to CEO storing and processing my personal data to contact me regarding my consultation request.</label>
+                        </div>
+                        <div class="form-buttons mt-4 text-center">
+                            <a href="index.html" class="btn btn-back me-3"><i class="fas fa-arrow-left me-2"></i>Back to Home</a>
+                            <button type="submit" class="btn btn-submit"><i class="fas fa-calendar-check me-2"></i>Book Consultation</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="success-message" id="successMessage">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Consultation Booked Successfully!</h3>
+                    <p>Thank you for booking a consultation with Side to CEO. We've sent a confirmation email with all the details to your inbox.</p>
+                    <p>One of our consultants will contact you shortly to confirm your appointment.</p>
+                    <div class="mt-4">
+                        <a href="index.html" class="btn btn-submit">Return to Homepage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    &lt;!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Side to CEO</h3>
+                    <p>Your journey from side hustle to CEO starts here.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="index.html#about">About Us</a></li>
+                            <li><a href="index.html#services">Our Services</a></li>
+                            <li><a href="index.html#pricing">Pricing</a></li>
+                            <li><a href="index.html#testimonials">Testimonials</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Guides</a></li>
+                            <li><a href="index.html#faq">FAQ</a></li>
+                            <li><a href="#">Support</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Subscribe to Our Newsletter</h4>
+                    <p>Get the latest tips and resources delivered directly to your inbox.</p>
+                    <form>
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit" class="btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p>&copy; 2023 Side to CEO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Set minimum date for booking (2 days from today)
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateInput = document.getElementById('date');
+            const today = new Date();
+            const minDate = new Date(today);
+            minDate.setDate(today.getDate() + 2);
+            
+            const formattedMinDate = minDate.toISOString().split('T')[0];
+            dateInput.setAttribute('min', formattedMinDate);
+            
+            // Form submission
+            const bookingForm = document.getElementById('bookingForm');
+            const consultationForm = document.getElementById('consultationForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simulate form submission (in a real application, you would send this to your server)
+                setTimeout(function() {
+                    consultationForm.style.display = 'none';
+                    successMessage.style.display = 'block';
+                }, 1000);
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mainNav = document.querySelector('.main-nav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

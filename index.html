@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side to CEO - From Side Hustle to CEO</title>
+    <meta name="description" content="Helping Ghanaian Entrepreneurs Build Strong Brands">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Flatpickr for Date/Time Picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+      :root {
+        --mint-primary: #7cdbc7;
+        --mint-secondary: #5ebfb5;
+        --amber-primary: #ffc857;
+        --amber-secondary: #ffaa00;
+        --mint-light: #e1f7f3;
+      }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* Custom Gradients */
+      .mint-gradient {
+        background-image: linear-gradient(to right, var(--mint-primary), var(--mint-secondary));
+      }
+
+      .mint-gradient-br {
+        background-image: linear-gradient(to bottom right, var(--mint-primary), var(--mint-secondary));
+      }
+
+      .amber-gradient {
+        background-image: linear-gradient(to right, var(--amber-primary), var(--amber-secondary));
+      }
+
+      /* Text Colors */
+      .text-mint {
+        color: var(--mint-secondary);
+      }
+
+      .text-amber {
+        color: var(--amber-primary);
+      }
+
+      /* Hero Section */
+      .hero {
+        position: relative;
+        padding: 8rem 0;
+        overflow: hidden;
+        color: white;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(to right, var(--mint-primary), var(--mint-secondary));
+        z-index: -2;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('https://placeholder.com/1920x1080');
+        background-size: cover;
+        opacity: 0.1;
+        mix-blend-mode: overlay;
+        z-index: -1;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(4px);
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      .title-underline {
+        position: relative;
+      }
+
+      .title-underline::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0.5rem;
+        background-color: var(--amber-primary);
+        border-radius: 9999px;
+        z-index: -1;
+      }
+
+      .challenge-card {
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      .wave-divider {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+      }
+
+      .wave-divider svg {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 120px;
+      }
+
+      .wave-divider .shape-fill {
+        fill: #FFFFFF;
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 5rem 0;
+      }
+
+      .section-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background-image: linear-gradient(to right, var(--mint-light), #d0f0eb);
+        color: var(--mint-secondary);
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+
+      /* Cards */
+      .service-card {
+        border: none;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      .service-card-header {
+        height: 0.5rem;
+      }
+
+      .service-icon {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 9999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease;
+      }
+
+      .service-card:hover .service-icon {
+        transform: scale(1.1);
+      }
+
+      .check-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 9999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.5rem;
+        flex-shrink: 0;
+      }
+
+      .check-icon-sm {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      /* Process */
+      .process-step {
+        position: relative;
+        text-align: center;
+      }
+
+      .process-number {
+        width: 6rem;
+        height: 6rem;
+        border-radius: 9999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: white;
+        position: relative;
+        z-index: 1;
+        transition: transform 0.3s ease;
+      }
+
+      .process-number::before {
+        content: '';
+        position: absolute;
+        inset: -1rem;
+        border-radius: 9999px;
+        background-image: linear-gradient(to right, var(--mint-primary), var(--mint-secondary));
+        opacity: 0.75;
+        filter: blur(1rem);
+        z-index: -1;
+        transition: opacity 0.3s ease;
+      }
+
+      .process-step:hover .process-number {
+        transform: scale(1.1);
+      }
+
+      .process-step:hover .process-number::before {
+        opacity: 1;
+      }
+
+      .process-arrow {
+        position: absolute;
+        top: 3rem;
+        right: -1rem;
+        color: var(--mint-secondary);
+        font-size: 2rem;
+        z-index: 2;
+        transition: transform 0.3s ease;
+      }
+
+      .process-step:hover .process-arrow {
+        transform: translateX(0.25rem);
+      }
+
+      /* Pricing */
+      .pricing-toggle {
+        background-color: #f3f4f6;
+        border-radius: 9999px;
+        padding: 0.25rem;
+        display: inline-flex;
+        margin-bottom: 2rem;
+      }
+
+      .pricing-toggle-btn {
+        padding: 0.5rem 1.5rem;
+        border-radius: 9999px;
+        border: none;
+        background: transparent;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .pricing-toggle-btn.active {
+        background-color: white;
+        color: var(--mint-secondary);
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      }
+
+      .pricing-card {
+        border: none;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .pricing-card.popular {
+        transform: scale(1.05);
+        z-index: 10;
+      }
+
+      .pricing-card:hover {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      .pricing-badge {
+        position: absolute;
+        top: -0.5rem;
+        right: -0.5rem;
+        background-image: linear-gradient(to right, var(--amber-primary), var(--amber-secondary));
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
+      /* Testimonials */
+      .testimonial-card {
+        border: none;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .testimonial-card:hover {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      .quote-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 9999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+
+      /* CTA */
+      .cta-section {
+        position: relative;
+        padding: 5rem 0;
+        color: white;
+      }
+
+      .cta-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(to right, var(--mint-primary), var(--mint-secondary));
+        z-index: -2;
+      }
+
+      .cta-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('https://placeholder.com/1920x1080');
+        background-size: cover;
+        opacity: 0.1;
+        mix-blend-mode: overlay;
+        z-index: -1;
+      }
+
+      /* Buttons */
+      .btn-white {
+        background-color: white;
+        color: var(--mint-secondary);
+        border-radius: 9999px;
+        padding: 0.75rem 1.5rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: none;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
+      .btn-white:hover {
+        background-color: rgba(255, 255, 255, 0.9);
+        color: var(--mint-secondary);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      .btn-mint {
+        background-image: linear-gradient(to right, var(--mint-primary), var(--mint-secondary));
+        color: white;
+        border-radius: 9999px;
+        padding: 0.75rem 1.5rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: none;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
+      .btn-mint:hover {
+        opacity: 0.9;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      .btn-lg {
+        padding: 1rem 2rem;
+        font-size: 1.125rem;
+      }
+
+      /* Animations */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .fade-up.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Utilities */
+      .shadow-lg {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      .rounded-full {
+        border-radius: 9999px;
+      }
+
+      .backdrop-blur {
+        backdrop-filter: blur(4px);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .hero {
+          padding: 6rem 0;
+        }
+
+        .process-arrow {
+          display: none;
+        }
+
+        .pricing-card.popular {
+          transform: scale(1);
+        }
+      }
+      
+      /* Navigation */
+      .navbar {
+        padding: 1rem 0;
+        transition: all 0.3s ease;
+      }
+      
+      .navbar-scrolled {
+        background-color: white;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        padding: 0.5rem 0;
+      }
+      
+      .navbar-brand {
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+      
+      .nav-link {
+        color: white;
+        font-weight: 500;
+        margin: 0 0.5rem;
+        transition: all 0.3s ease;
+      }
+      
+      .nav-link:hover {
+        color: var(--amber-primary);
+      }
+      
+      .navbar-scrolled .nav-link {
+        color: #495057;
+      }
+      
+      .navbar-scrolled .nav-link:hover {
+        color: var(--mint-secondary);
+      }
+      
+      .navbar-toggler {
+        border: none;
+      }
+      
+      .btn-outline-white {
+        color: white;
+        border-color: white;
+        border-radius: 9999px;
+        transition: all 0.3s ease;
+      }
+      
+      .btn-outline-white:hover {
+        background-color: white;
+        color: var(--mint-secondary);
+      }
+      
+      .navbar-scrolled .btn-outline-white {
+        color: var(--mint-secondary);
+        border-color: var(--mint-secondary);
+      }
+      
+      .navbar-scrolled .btn-outline-white:hover {
+        background-color: var(--mint-secondary);
+        color: white;
+      }
+      
+      /* Consultation Form Modal */
+      .modal-content {
+        border-radius: 1rem;
+        border: none;
+        overflow: hidden;
+      }
+      
+      .modal-header.mint-gradient {
+        color: white;
+        border-bottom: none;
+      }
+      
+      .modal-header .btn-close {
+        color: white;
+        filter: brightness(0) invert(1);
+      }
+      
+      .form-control:focus, .form-select:focus {
+        border-color: var(--mint-secondary);
+        box-shadow: 0 0 0 0.25rem rgba(94, 191, 181, 0.25);
+      }
+      
+      .flatpickr-calendar.open {
+        z-index: 1060;
+      }
+      
+      .time-slot {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        margin: 0.25rem;
+        border-radius: 0.5rem;
+        border: 1px solid #dee2e6;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      
+      .time-slot:hover {
+        border-color: var(--mint-secondary);
+        background-color: var(--mint-light);
+      }
+      
+      .time-slot.selected {
+        background-color: var(--mint-secondary);
+        color: white;
+        border-color: var(--mint-secondary);
+      }
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand text-white" href="#">
+      Side <span class="title-underline">to</span> CEO
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item">
+          <a class="nav-link" href="#services">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#pricing">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#testimonials">Testimonials</a>
+        </li>
+        <!-- Update the Client Login button in the navigation -->
+<li class="nav-item ms-lg-3">
+  <a class="btn btn-outline-white" href="portal/pages/login.html">Client Login</a>
+</li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="container position-relative">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6" data-aos="fade-up">
+        <div class="hero-badge">Transform Your Business</div>
+        <h1 class="display-4 fw-bold mb-4">
+          Side <span class="title-underline">to</span> CEO
+        </h1>
+        <p class="fs-4 fw-light mb-4">
+          From Side Hustle to CEO — Helping Ghanaian Entrepreneurs Build Strong Brands
+        </p>
+        <button type="button" class="btn btn-white btn-lg d-inline-flex align-items-center" data-bs-toggle="modal" data-bs-target="#consultationModal">
+          Book a Free Consultation
+          <i class="bi bi-arrow-up-right ms-2"></i>
+        </button>
+      </div>
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="challenge-card">
+          <h2 class="fs-3 fw-bold mb-4">The Challenge</h2>
+          <ul class="list-unstyled">
+            <li class="d-flex align-items-start mb-3">
+              <div class="check-icon amber-gradient">
+                <i class="bi bi-check-circle-fill text-white"></i>
+              </div>
+              <span>Lack of business knowledge</span>
+            </li>
+            <li class="d-flex align-items-start mb-3">
+              <div class="check-icon amber-gradient">
+                <i class="bi bi-check-circle-fill text-white"></i>
+              </div>
+              <span>Struggling to stand out</span>
+            </li>
+            <li class="d-flex align-items-start mb-3">
+              <div class="check-icon amber-gradient">
+                <i class="bi bi-check-circle-fill text-white"></i>
+              </div>
+              <span>Limited time & resources</span>
+            </li>
+            <li class="d-flex align-items-start">
+              <div class="check-icon amber-gradient">
+                <i class="bi bi-check-circle-fill text-white"></i>
+              </div>
+              <span>Unclear growth path</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wave-divider">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+      <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+      <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+    </svg>
+  </div>
+</header>
+
+<!-- Our Solution -->
+<section class="section bg-white" id="about">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6" data-aos="fade-up">
+        <div class="position-relative">
+          <div class="position-absolute" style="inset: -1rem; background-image: linear-gradient(to bottom right, var(--mint-primary), var(--mint-secondary)); border-radius: 9999px; filter: blur(1rem); opacity: 0.75;"></div>
+          <div class="position-relative mint-gradient rounded-circle p-4 d-inline-flex">
+            <i class="bi bi-handshake text-white" style="font-size: 6rem;"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="section-badge">Our Solution</div>
+        <h2 class="display-6 fw-bold text-mint mb-4">We've Got You Covered</h2>
+        <p class="fs-5 text-secondary mb-4">
+          We provide guidance, tools, and strategies for microprose cuts to successfully launch and grow their brands
+        </p>
+        <h3 class="fs-3 fw-bold text-amber">Launch. Position. Grow.</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Services -->
+<section class="section bg-light position-relative" id="services">
+  <div class="position-absolute top-0 start-0 end-0" style="height: 10rem; background-image: linear-gradient(to bottom, white, transparent);"></div>
+  <div class="position-absolute" style="top: -6rem; right: -6rem; width: 24rem; height: 24rem; background-image: linear-gradient(to bottom right, var(--mint-primary), var(--mint-secondary)); border-radius: 9999px; filter: blur(3rem); opacity: 0.2; z-index: 0;"></div>
+  <div class="position-absolute" style="bottom: -6rem; left: -6rem; width: 24rem; height: 24rem; background-image: linear-gradient(to bottom right, var(--amber-primary), var(--amber-secondary)); border-radius: 9999px; filter: blur(3rem); opacity: 0.2; z-index: 0;"></div>
+
+  <div class="container position-relative">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-badge">What We Offer</div>
+      <h2 class="display-6 fw-bold text-mint">Our Services</h2>
+    </div>
+
+    <div class="row g-4">
+      <!-- Service 1 -->
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card service-card h-100">
+          <div class="service-card-header mint-gradient"></div>
+          <div class="card-body">
+            <div class="service-icon mint-gradient text-white">
+              <i class="bi bi-briefcase fs-3"></i>
+            </div>
+            <h3 class="card-title fs-4 text-mint mb-3">Startup & Strategy</h3>
+            <ul class="list-unstyled">
+              <li class="d-flex align-items-center mb-2">
+                <div class="check-icon check-icon-sm amber-gradient">
+                  <i class="bi bi-check-circle-fill text-white small"></i>
+                </div>
+                <span>Founders/Aunty</span>
+              </li>
+              <li class="d-flex align-items-center mb-2">
+                <div class="check-icon check-icon-sm amber-gradient">
+                  <i class="bi bi-check-circle-fill text-white small"></i>
+                </div>
+                <span>Pricing Strategy</span>
+              </li>
+              <li class="d-flex align-items-center">
+                <div class="check-icon check-icon-sm amber-gradient">
+                  <i class="bi bi-check-circle-fill text-white small"></i>
+                </div>
+                <span>Printing</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer bg-white border-0">
+            <button type="button" class="btn btn-link text-mint w-100 d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#consultationModal" data-service="Startup & Strategy">
+              Learn More
+              <i class="bi bi-arrow-right ms-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card service-card h-100">
+          <div class="service-card-header mint-gradient"></div>
+          <div class="card-body">
+            <div class="service-icon mint-gradient text-white">
+              <i class="bi bi-people fs-3"></i>
+            </div>
+            <h3 class="card-title fs-4 text-mint mb-3">Personal Branding</h3>
+            <ul class="list-unstyled">
+              <li class="d-flex align-items-center mb-2">
+                <div class="check-icon check-icon-sm amber-gradient">
+                  <i class="bi bi-check-circle-fill text-white small"></i>
+                </div>
+                <span>Cerefigior</span>
+              </li>
+              <li class="d-flex align-items-center">
+                <div class="check-icon check-icon-sm amber-gradient">
+                  <i class="bi bi-check-circle-fill text-white small"></i>
+                </div>
+                <span>Concire branding</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer bg-white border-0">
+            <button type="button" class="btn btn-link text-mint w-100 d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#consultationModal" data-service="Personal Branding">
+              Learn More
+              <i class="bi bi-arrow-right ms-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card service-card h-100">
+          <div class="service-card-header mint-gradient"></div>
+          <div class="card-body">
+            <div class="service-icon mint-gradient text-white">
+              <i class="bi bi-bar-chart fs-3"></i>
+            </div>
+            <h3 class="card-title fs-4 text-mint mb-3">Content & Digital Growth</h3>
+            <ul class="list-unstyled">
+              <li class="d-flex align-items-center mb-2">
+                <div class="check-icon check-icon-sm amber-gradient">
+                  <i class="bi bi-check-circle-fill text-white small"></i>
+                </div>
+                <span>Cognitourism</span>
+              </li>
+              <li class="d-flex align-items-center">
+                <div class="check-icon check-icon-sm amber-gradient">
+                  <i class="bi bi-check-circle-fill text-white small"></i>
+                </div>
+                <span>Contfilterized</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer bg-white border-0">
+            <button type="button" class="btn btn-link text-mint w-100 d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#consultationModal" data-service="Content & Digital Growth">
+              Learn More
+              <i class="bi bi-arrow-right ms-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Who We Serve -->
+<section class="section bg-white position-relative">
+  <div class="position-absolute" style="top: -10rem; right: -10rem; width: 20rem; height: 20rem; background-image: linear-gradient(to bottom right, var(--mint-primary), var(--mint-secondary)); border-radius: 9999px; filter: blur(3rem); opacity: 0.2; z-index: 0;"></div>
+
+  <div class="container position-relative">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-badge">Our Audience</div>
+      <h2 class="display-6 fw-bold text-mint">Who We Serve</h2>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <!-- Audience 1 -->
+      <div class="col-md-4 text-center" data-aos="fade-up">
+        <div class="position-relative mx-auto mb-4" style="width: 8rem; height: 8rem;">
+          <div class="position-absolute" style="inset: 0; background-image: linear-gradient(to bottom right, var(--mint-primary), var(--mint-secondary)); border-radius: 9999px; filter: blur(0.5rem); opacity: 0.75;"></div>
+          <div class="position-relative bg-white rounded-circle shadow-lg d-flex align-items-center justify-content-center" style="width: 8rem; height: 8rem;">
+            <img src="https://placeholder.com/80x80" alt="Aspiring Entrepreneurs" class="rounded-circle" width="80" height="80">
+          </div>
+        </div>
+        <h3 class="fs-4 fw-semibold text-mint">Aspiring Entrepreneurs</h3>
+      </div>
+
+      <!-- Audience 2 -->
+      <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="100">
+        <div class="position-relative mx-auto mb-4" style="width: 8rem; height: 8rem;">
+          <div class="position-absolute" style="inset: 0; background-image: linear-gradient(to bottom right, var(--mint-primary), var(--mint-secondary)); border-radius: 9999px; filter: blur(0.5rem); opacity: 0.75;"></div>
+          <div class="position-relative bg-white rounded-circle shadow-lg d-flex align-items-center justify-content-center" style="width: 8rem; height: 8rem;">
+            <img src="https://placeholder.com/80x80" alt="Small Business Owners" class="rounded-circle" width="80" height="80">
+          </div>
+        </div>
+        <h3 class="fs-4 fw-semibold text-mint">Small Business Owners</h3>
+      </div>
+
+      <!-- Audience 3 -->
+      <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="position-relative mx-auto mb-4" style="width: 8rem; height: 8rem;">
+          <div class="position-absolute" style="inset: 0; background-image: linear-gradient(to bottom right, var(--mint-primary), var(--mint-secondary)); border-radius: 9999px; filter: blur(0.5rem); opacity: 0.75;"></div>
+          <div class="position-relative bg-white rounded-circle shadow-lg d-flex align-items-center justify-content-center" style="width: 8rem; height: 8rem;">
+            <img src="https://placeholder.com/80x80" alt="Freelancers & Creatives" class="rounded-circle" width="80" height="80">
+          </div>
+        </div>
+        <h3 class="fs-4 fw-semibold text-mint">Freelancers & Creatives</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="section position-relative">
+  <div class="position-absolute inset-0 mint-gradient" style="top: 0; left: 0; right: 0; bottom: 0;"></div>
+  <div class="position-absolute inset-0" style="top: 0; left: 0; right: 0; bottom: 0; background-image: url('https://placeholder.com/1920x1080'); background-size: cover; opacity: 0.1; mix-blend-mode: overlay;"></div>
+
+  <div class="container position-relative">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="display-6 fw-bold text-white">Why Choose Us</h2>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <!-- Feature 1 -->
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="d-flex align-items-start">
+          <div class="position-relative me-3 mt-1">
+            <div class="position-absolute" style="inset: 0; background-image: linear-gradient(to right, var(--amber-primary), var(--amber-secondary)); border-radius: 9999px; filter: blur(0.5rem); opacity: 0.75;"></div>
+            <div class="position-relative bg-white/10 backdrop-blur rounded-circle p-2">
+              <i class="bi bi-check-circle-fill text-white"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="fs-4 fw-semibold mb-2 text-white">Affordable packages</h3>
+            <p class="text-white-80" style="opacity: 0.8;">Pricing options that fit your budget and business needs</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="d-flex align-items-start">
+          <div class="position-relative me-3 mt-1">
+            <div class="position-absolute" style="inset: 0; background-image: linear-gradient(to right, var(--amber-primary), var(--amber-secondary)); border-radius: 9999px; filter: blur(0.5rem); opacity: 0.75;"></div>
+            <div class="position-relative bg-white/10 backdrop-blur rounded-circle p-2">
+              <i class="bi bi-check-circle-fill text-white"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="fs-4 fw-semibold mb-2 text-white">One-on-one support</h3>
+            <p class="text-white-80" style="opacity: 0.8;">Personalized guidance throughout your business journey</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="d-flex align-items-start">
+          <div class="position-relative me-3 mt-1">
+            <div class="position-absolute" style="inset: 0; background-image: linear-gradient(to right, var(--amber-primary), var(--amber-secondary)); border-radius: 9999px; filter: blur(0.5rem); opacity: 0.75;"></div>
+            <div class="position-relative bg-white/10 backdrop-blur rounded-circle p-2">
+              <i class="bi bi-check-circle-fill text-white"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="fs-4 fw-semibold mb-2 text-white">Tailored solutions</h3>
+            <p class="text-white-80" style="opacity: 0.8;">Custom strategies designed for your specific business</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="d-flex align-items-start">
+          <div class="position-relative me-3 mt-1">
+            <div class="position-absolute" style="inset: 0; background-image: linear-gradient(to right, var(--amber-primary), var(--amber-secondary)); border-radius: 9999px; filter: blur(0.5rem); opacity: 0.75;"></div>
+            <div class="position-relative bg-white/10 backdrop-blur rounded-circle p-2">
+              <i class="bi bi-check-circle-fill text-white"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="fs-4 fw-semibold mb-2 text-white">Support beyond launch</h3>
+            <p class="text-white-80" style="opacity: 0.8;">Ongoing assistance to help your business grow</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wave-divider">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+      <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+      <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="section bg-white position-relative" id="pricing">
+  <div class="position-absolute" style="top: -10rem; left: -10rem; width: 20rem; height: 20rem; background-image: linear-gradient(to bottom right, var(--amber-primary), var(--amber-secondary)); border-radius: 9999px; filter: blur(3rem); opacity: 0.2; z-index: 0;"></div>
+  <div class="position-absolute" style="bottom: -10rem; right: -10rem; width: 20rem; height: 20rem; background-image: linear-gradient(to bottom right, var(--mint-primary), var(--mint-secondary)); border-radius: 9999px; filter: blur(3rem); opacity: 0.2; z-index: 0;"></div>
+
+  <div class="container position-relative">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-badge">Flexible Options</div>
+      <h2 class="display-6 fw-bold text-mint mb-4">Pricing</h2>
+
+      <div class="pricing-toggle">
+        <button class="pricing-toggle-btn active" id="monthly-toggle">Monthly</button>
+        <button class="pricing-toggle-btn" id="yearly-toggle">Yearly</button>
+      </div>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <!-- Pricing 1 -->
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card pricing-card h-100">
+          <div class="card-header mint-gradient" style="height: 0.5rem; padding: 0;"></div>
+          <div class="card-body text-center">
+            <h3 class="card-title fs-4 text-mint mb-4">Starter</h3>
+            <p class="pricing-amount">
+              <span class="fs-2 fw-bold text-mint" id="starter-price">GHS 300-500</span>
+              <span class="text-muted d-block" id="starter-period">/month</span>
+            </p>
+            <ul class="list-unstyled mt-4">
+              <li class="d-flex align-items-center mb-2">
+                <div class="check-icon check-icon-sm amber-gradient me-2">
+                  <i class="bi bi-check-circle-fill text-white small"></i>
+                </div>
+                <span>Bottle hools</span>
+              </li>
+              <li class="d-flex align-items-center mb-2">
+                <div class="check-icon check-icon-sm amber-gradient me-2">
+                  <i class="bi bi-check-circle-fill text-white small"></i>
+                </div>
+                <span>Puttanipapps</span>
+              </li>
+              <li class="d-flex align-items-center">
+                <div class="check-icon check-icon-sm amber-gradient me-2">
+                  <i class="bi bi-check-circle-fill text-white small"></i>
+                </div>
+                <span>Presitert</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer bg-white border-0 p-4">
+            <button type="button" class="btn btn-mint w-100 rounded-pill" data-bs-toggle="modal" data-bs-target="#consultationModal" data-service="Starter Package">Get Started</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pricing 2 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card pricing-card popular h-100">
+          <div class="pricing-badge">Popular</div>
+          <div class="card-header mint-gradient" style="height: 0.5rem; padding: 0;"></div>
+          <div class="card-body text-center" style="background-image: linear-gradient(to right, var(--mint-light), #d0f0eb);">
+            <h3 class="card-title fs-4 text-mint mb-4">Growth</h3>
+            <p class="pricing-amount">
+              <span class="fs-2 fw-bold text-mint" id="growth-price">GHS 100-1200</span>
+              <span class="text-muted d-block" id="growth-period">/month</span>
+            </p>
+            <ul class="list-unstyled mt-4">
+              <li class="d-flex align-items-center mb-2">
+                <div class="check-icon check-icon-sm amber-gradient me-2">
+                  <i class="bi bi-check-circle-fill text-white small"></i>
+                </div>
+                <span>Frans</span>
+              </li>
+              <li class="d-flex align-items-center">
+                <div class="check-icon check-icon-sm amber-gradient me-2">
+                  <i class="bi bi-check-circle-fill text-white small"></i>
+                </div>
+                <span>Puntizeer Kutors</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer bg-white border-0 p-4">
+            <button type="button" class="btn btn-mint w-100 rounded-pill" data-bs-toggle="modal" data-bs-target="#consultationModal" data-service="Growth Package">Get Started</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pricing 3 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card pricing-card h-100">
+          <div class="card-header mint-gradient" style="height: 0.5rem; padding: 0;"></div>
+          <div class="card-body text-center">
+            <h3 class="card-title fs-4 text-mint mb-4">Premium</h3>
+            <p class="pricing-amount">
+              <span class="fs-2 fw-bold text-mint" id="premium-price">GHS 1900-5500</span>
+              <span class="text-muted d-block" id="premium-period">/month</span>
+            </p>
+            <ul class="list-unstyled mt-4">
+              <li class="d-flex align-items-center mb-2">
+                <div class="check-icon check-icon-sm amber-gradient me-2">
+                  <i class="bi bi-check-circle-fill text-white small"></i>
+                </div>
+                <span>Pluy gurlrellbour</span>
+              </li>
+              <li class="d-flex align-items-center mb-2">
+                <div class="check-icon check-icon-sm amber-gradient me-2">
+                  <i class="bi bi-check-circle-fill text-white small"></i>
+                </div>
+                <span>Otheryples sugor</span>
+              </li>
+              <li class="d-flex align-items-center">
+                <div class="check-icon check-icon-sm amber-gradient me-2">
+                  <i class="bi bi-check-circle-fill text-white small"></i>
+                </div>
+                <span>conforts profeil</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer bg-white border-0 p-4">
+            <button type="button" class="btn btn-mint w-100 rounded-pill" data-bs-toggle="modal" data-bs-target="#consultationModal" data-service="Premium Package">Get Started</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Process -->
+<section class="section bg-light position-relative">
+  <div class="position-absolute" style="top: -10rem; right: -10rem; width: 20rem; height: 20rem; background-image: linear-gradient(to bottom right, var(--mint-primary), var(--mint-secondary)); border-radius: 9999px; filter: blur(3rem); opacity: 0.2; z-index: 0;"></div>
+
+  <div class="container position-relative">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-badge">How We Work</div>
+      <h2 class="display-6 fw-bold text-mint">Our Process</h2>
+    </div>
+
+    <div class="d-none d-md-block" style="height: 0.25rem; background-image: linear-gradient(to right, var(--mint-primary), var(--mint-secondary)); border-radius: 9999px; max-width: 48rem; margin: 0 auto 2rem;"></div>
+
+    <div class="row g-4">
+      <!-- Process 1 -->
+      <div class="col-md-3" data-aos="fade-up">
+        <div class="process-step">
+          <div class="process-number mint-gradient">1</div>
+          <i class="bi bi-arrow-right process-arrow"></i>
+          <h3 class="fs-4 fw-semibold mb-2 text-mint">Free Consultation</h3>
+          <p class="text-muted">Initial assessment of your business needs</p>
+        </div>
+      </div>
+
+      <!-- Process 2 -->
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="process-step">
+          <div class="process-number mint-gradient">2</div>
+          <i class="bi bi-arrow-right process-arrow"></i>
+          <h3 class="fs-4 fw-semibold mb-2 text-mint">Strategy & branding</h3>
+          <p class="text-muted">Developing your unique business strategy</p>
+        </div>
+      </div>
+
+      <!-- Process 3 -->
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="process-step">
+          <div class="process-number mint-gradient">3</div>
+          <i class="bi bi-arrow-right process-arrow"></i>
+          <h3 class="fs-4 fw-semibold mb-2 text-mint">Launch & Growth</h3>
+          <p class="text-muted">Executing the plan and launching your brand</p>
+        </div>
+      </div>
+
+      <!-- Process 4 -->
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="process-step">
+          <div class="process-number mint-gradient">4</div>
+          <h3 class="fs-4 fw-semibold mb-2 text-mint">Continuous Support</h3>
+          <p class="text-muted">Ongoing assistance to ensure success</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="row g-4 text-center">
+      <!-- Stat 1 -->
+      <div class="col-6 col-md-3" data-aos="fade-up">
+        <h3 class="display-5 fw-bold text-mint mb-2" data-count="200">200+</h3>
+        <p class="text-muted">Clients Served</p>
+      </div>
+
+      <!-- Stat 2 -->
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="display-5 fw-bold text-mint mb-2" data-count="95">95%</h3>
+        <p class="text-muted">Success Rate</p>
+      </div>
+
+      <!-- Stat 3 -->
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="display-5 fw-bold text-mint mb-2" data-count="50">50+</h3>
+        <p class="text-muted">Workshops</p>
+      </div>
+
+      <!-- Stat 4 -->
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+        <h3 class="display-5 fw-bold text-mint mb-2">24/7</h3>
+        <p class="text-muted">Support</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section bg-light position-relative" id="testimonials">
+  <div class="position-absolute" style="bottom: -10rem; left: -10rem; width: 20rem; height: 20rem; background-image: linear-gradient(to bottom right, var(--amber-primary), var(--amber-secondary)); border-radius: 9999px; filter: blur(3rem); opacity: 0.2; z-index: 0;"></div>
+
+  <div class="container position-relative">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-badge">What People Say</div>
+      <h2 class="display-6 fw-bold text-mint">Client Testimonials</h2>
+    </div>
+
+    <div class="row g-4">
+      <!-- Testimonial 1 -->
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card testimonial-card h-100">
+          <div class="card-body p-4">
+            <div class="quote-icon mint-gradient">
+              <i class="bi bi-quote text-white"></i>
+            </div>
+            <p class="fst-italic text-muted mb-4">Side to CEO transformed my business. Their guidance helped me double my revenue in just 6 months.</p>
+            <div class="d-flex align-items-center">
+              <div class="bg-light rounded-circle me-3" style="width: 2.5rem; height: 2.5rem;"></div>
+              <div>
+                <p class="fw-semibold mb-0">Sarah Johnson</p>
+                <p class="text-muted small mb-0">Fashion Designer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card testimonial-card h-100">
+          <div class="card-body p-4">
+            <div class="quote-icon mint-gradient">
+              <i class="bi bi-quote text-white"></i>
+            </div>
+            <p class="fst-italic text-muted mb-4">The team's expertise in branding helped me stand out in a crowded market. Highly recommended!</p>
+            <div class="d-flex align-items-center">
+              <div class="bg-light rounded-circle me-3" style="width: 2.5rem; height: 2.5rem;"></div>
+              <div>
+                <p class="fw-semibold mb-0">Michael Osei</p>
+                <p class="text-muted small mb-0">Tech Startup Founder</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card testimonial-card h-100">
+          <div class="card-body p-4">
+            <div class="quote-icon mint-gradient">
+              <i class="bi bi-quote text-white"></i>
+            </div>
+            <p class="fst-italic text-muted mb-4">Their strategic approach to business growth is unmatched. Worth every cedi invested!</p>
+            <div class="d-flex align-items-center">
+              <div class="bg-light rounded-circle me-3" style="width: 2.5rem; height: 2.5rem;"></div>
+              <div>
+                <p class="fw-semibold mb-0">Ama Darko</p>
+                <p class="text-muted small mb-0">Food Entrepreneur</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="cta-overlay"></div>
+
+  <div class="container position-relative text-center">
+    <h2 class="display-5 fw-bold mb-4 text-white" data-aos="fade-up">Ready to take your side hustle to CEO?</h2>
+    <button type="button" class="btn btn-white btn-lg d-inline-flex align-items-center" data-bs-toggle="modal" data-bs-target="#consultationModal" data-aos="fade-up" data-aos-delay="100">
+      Book a Free Consultation
+      <i class="bi bi-arrow-up-right ms-2"></i>
+    </button>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-white py-5">
+  <div class="container text-center">
+    <p class="text-muted small mb-0">&copy; 2023 Side to CEO. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Consultation Modal -->
+<div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header mint-gradient">
+        <h5 class="modal-title" id="consultationModalLabel">Book a Free Consultation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="consultationForm">
+          <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" name="phone">
+          </div>
+          <div class="mb-3">
+            <label for="service" class="form-label">Interested In</label>
+            <select class="form-select" id="service" name="service" required>
+              <option value="">Select a Service</option>
+              <option value="Startup & Strategy">Startup & Strategy</option>
+              <option value="Personal Branding">Personal Branding</option>
+              <option value="Content & Digital Growth">Content & Digital Growth</option>
+              <option value="Starter Package">Starter Package</option>
+              <option value="Growth Package">Growth Package</option>
+              <option value="Premium Package">Premium Package</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="date" class="form-label">Preferred Date</label>
+            <input type="text" class="form-control flatpickr" id="date" name="date" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Preferred Time</label>
+            <div class="d-flex flex-wrap">
+              <span class="time-slot" data-time="9:00 AM">9:00 AM</span>
+              <span class="time-slot" data-time="10:00 AM">10:00 AM</span>
+              <span class="time-slot" data-time="11:00 AM">11:00 AM</span>
+              <span class="time-slot" data-time="2:00 PM">2:00 PM</span>
+              <span class="time-slot" data-time="3:00 PM">3:00 PM</span>
+              <span class="time-slot" data-time="4:00 PM">4:00 PM</span>
+            </div>
+            <input type="hidden" id="time" name="time">
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Message (Optional)</label>
+            <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-mint w-100">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AOS Animation Library -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Flatpickr for Date/Time Picker -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<!-- Main JS -->
+<script src="assets/js/main.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true
+    });
+
+    // Initialize Flatpickr
+    flatpickr(".flatpickr", {
+      minDate: "today",
+      dateFormat: "Y-m-d",
+    });
+
+    // Navbar scroll class
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+      }
+    });
+
+    // Pricing toggle
+    const monthlyToggle = document.getElementById('monthly-toggle');
+    const yearlyToggle = document.getElementById('yearly-toggle');
+
+    if (monthlyToggle && yearlyToggle) {
+        monthlyToggle.addEventListener('click', function() {
+            monthlyToggle.classList.add('active');
+            yearlyToggle.classList.remove('active');
+            updatePricing('monthly');
+        });
+
+        yearlyToggle.addEventListener('click', function() {
+            yearlyToggle.classList.add('active');
+            monthlyToggle.classList.remove('active');
+            updatePricing('yearly');
+        });
+    }
+
+    function updatePricing(period) {
+        const starterPrice = document.getElementById('starter-price');
+        const growthPrice = document.getElementById('growth-price');
+        const premiumPrice = document.getElementById('premium-price');
+
+        const starterPeriod = document.getElementById('starter-period');
+        const growthPeriod = document.getElementById('growth-period');
+        const premiumPeriod = document.getElementById('premium-period');
+
+        if (period === 'monthly') {
+            starterPrice.textContent = 'GHS 300-500';
+            growthPrice.textContent = 'GHS 100-1200';
+            premiumPrice.textContent = 'GHS 1900-5500';
+
+            starterPeriod.textContent = '/month';
+            growthPeriod.textContent = '/month';
+            premiumPeriod.textContent = '/month';
+        } else if (period === 'yearly') {
+            starterPrice.textContent = 'GHS 3000-5000';
+            growthPrice.textContent = 'GHS 1000-12000';
+            premiumPrice.textContent = 'GHS 19000-55000';
+
+            starterPeriod.textContent = '/year';
+            growthPeriod.textContent = '/year';
+            premiumPeriod.textContent = '/year';
+        }
+    }
+
+    // Stats counter animation
+    const counters = document.querySelectorAll('[data-count]');
+    counters.forEach(counter => {
+      counter.innerText = '0';
+      const updateCounter = () => {
+        const target = +counter.getAttribute('data-count');
+        const c = +counter.innerText;
+        const increment = target / 200;
+        if (c < target) {
+          counter.innerText = `${Math.ceil(c + increment)}`;
+          setTimeout(updateCounter, 1);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCounter();
+    });
+
+    // Consultation form submission
+    const consultationForm = document.getElementById('consultationForm');
+    if (consultationForm) {
+      consultationForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const service = document.getElementById('service').value;
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+        const message = document.getElementById('message').value;
+
+        // Basic validation
+        if (!name || !email || !service || !date || !time) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+
+        // Simulate form submission (replace with actual submission logic)
+        console.log('Form submitted:');
+        console.log('Name:', name);
+        console.log('Email:', email);
+        console.log('Phone:', phone);
+        console.log('Service:', service);
+        console.log('Date:', date);
+        console.log('Time:', time);
+        console.log('Message:', message);
+
+        // Close the modal
+        const consultationModal = document.getElementById('consultationModal');
+        const modal = bootstrap.Modal.getInstance(consultationModal);
+        modal.hide();
+
+        // Reset the form
+        consultationForm.reset();
+      });
+    }
+
+    // Time slot selection
+    const timeSlots = document.querySelectorAll('.time-slot');
+    timeSlots.forEach(slot => {
+      slot.addEventListener('click', function () {
+        // Remove 'selected' class from all slots
+        timeSlots.forEach(s => s.classList.remove('selected'));
+
+        // Add 'selected' class to the clicked slot
+        this.classList.add('selected');
+
+        // Set the value of the hidden time input
+        document.getElementById('time').value = this.dataset.time;
+      });
+    });
+
+    // Set service based on button clicked
+    const consultationModalEl = document.getElementById('consultationModal');
+    consultationModalEl.addEventListener('show.bs.modal', function (event) {
+      const button = event.relatedTarget; // Button that triggered the modal
+      const service = button.dataset.service; // Extract info from data-* attributes
+      const modalTitle = consultationModalEl.querySelector('.modal-title');
+      const serviceSelect = consultationModalEl.querySelector('#service');
+
+      if (service) {
+        modalTitle.textContent = 'Book a Free Consultation - ' + service;
+        serviceSelect.value = service;
+      } else {
+        modalTitle.textContent = 'Book a Free Consultation';
+        serviceSelect.value = '';
+      }
+    });
+  });
+</script>
+</body>
+</html>

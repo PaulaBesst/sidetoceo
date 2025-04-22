@@ -1,0 +1,320 @@
+<div class="portal-container">
+    <!-- Include sidebar -->
+    <div class="portal-sidebar-container" id="sidebarContainer"></div>
+    
+    <div class="portal-content">
+        <!-- Include header -->
+        <div id="headerContainer"></div>
+        
+        <main class="portal-main p-4">
+            <div class="container-fluid">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="fs-4 fw-bold">Service Catalog</h1>
+                    <div>
+                        <button class="btn btn-outline-mint btn-sm me-2">
+                            <i class="bi bi-funnel me-1"></i> Filter
+                        </button>
+                        <button class="btn btn-mint btn-sm">
+                            <i class="bi bi-cart me-1"></i> Cart (2)
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Service Categories -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <ul class="nav nav-pills service-categories" id="serviceCategories" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">All Services</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="startup-tab" data-bs-toggle="pill" data-bs-target="#startup" type="button" role="tab" aria-controls="startup" aria-selected="false">Startup & Strategy</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="branding-tab" data-bs-toggle="pill" data-bs-target="#branding" type="button" role="tab" aria-controls="branding" aria-selected="false">Personal Branding</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="digital-tab" data-bs-toggle="pill" data-bs-target="#digital" type="button" role="tab" aria-controls="digital" aria-selected="false">Content & Digital Growth</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service Listings -->
+                <div class="tab-content" id="serviceCategoriesContent">
+                    <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+                        <div class="row g-4">
+                            <!-- Service 1 -->
+                            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                                <div class="card service-card h-100">
+                                    <div class="service-card-header mint-gradient"></div>
+                                    <div class="card-body p-4">
+                                        <div class="service-icon mint-gradient text-white mb-3">
+                                            <i class="bi bi-lightbulb fs-3"></i>
+                                        </div>
+                                        <h3 class="card-title fs-5 fw-bold text-mint mb-3">Brand Strategy Development</h3>
+                                        <p class="card-text text-muted mb-3">Comprehensive brand strategy to position your business for success in the market.</p>
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <span class="fw-bold fs-5">GHS 1,200</span>
+                                            <span class="badge bg-mint">Popular</span>
+                                        </div>
+                                        <ul class="list-unstyled mb-4">
+                                            <li class="d-flex align-items-center mb-2">
+                                                <div class="check-icon check-icon-sm amber-gradient me-2">
+                                                    <i class="bi bi-check-circle-fill text-white small"></i>
+                                                </div>
+                                                <span class="small">Brand positioning</span>
+                                            </li>
+                                            <li class="d-flex align-items-center mb-2">
+                                                <div class="check-icon check-icon-sm amber-gradient me-2">
+                                                    <i class="bi bi-check-circle-fill text-white small"></i>
+                                                </div>
+                                                <span class="small">Target audience analysis</span>
+                                            </li>
+                                            <li class="d-flex align-items-center mb-2">
+                                                <div class="check-icon check-icon-sm amber-gradient me-2">
+                                                    <i class="bi bi-check-circle-fill text-white small"></i>
+                                                </div>
+                                                <span class="small">Competitive analysis</span>
+                                            </li>
+                                            <li class="d-flex align-items-center">
+                                                <div class="check-icon check-icon-sm amber-gradient me-2">
+                                                    <i class="bi bi-check-circle-fill text-white small"></i>
+                                                </div>
+                                                <span class="small">Brand messaging framework</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-footer bg-white border-0 p-4">
+                                        <div class="d-flex">
+                                            <a href="#/service-details" class="btn btn-outline-mint me-2 flex-grow-1">Learn More</a>
+                                            <button class="btn btn-mint flex-grow-1">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Service 2 -->
+                            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                                <div class="card service-card h-100">
+                                    <div class="service-card-header mint-gradient"></div>
+                                    <div class="card-body p-4">
+                                        <div class="service-icon mint-gradient text-white mb-3">
+                                            <i class="bi bi-palette fs-3"></i>
+                                        </div>
+                                        <h3 class="card-title fs-5 fw-bold text-mint mb-3">Visual Identity Design</h3>
+                                        <p class="card-text text-muted mb-3">Professional visual identity to make your brand recognizable and memorable.</p>
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <span class="fw-bold fs-5">GHS 1,500</span>
+                                            <span class="badge bg-secondary">Essential</span>
+                                        </div>
+                                        <ul class="list-unstyled mb-4">
+                                            <li class="d-flex align-items-center mb-2">
+                                                <div class="check-icon check-icon-sm amber-gradient me-2">
+                                                    <i class="bi bi-check-circle-fill text-white small"></i>
+                                                </div>
+                                                <span class="small">Logo design (3 concepts)</span>
+                                            </li>
+                                            <li class="d-flex align-items-center mb-2">
+                                                <div class="check-icon check-icon-sm amber-gradient me-2">
+                                                    <i class="bi bi-check-circle-fill text-white small"></i>
+                                                </div>
+                                                <span class="small">Color palette</span>
+                                            </li>
+                                            <li class="d-flex align-items-center mb-2">
+                                                <div class="check-icon check-icon-sm amber-gradient me-2">
+                                                    <i class="bi bi-check-circle-fill text-white small"></i>
+                                                </div>
+                                                <span class="small">Typography selection</span>
+                                            </li>
+                                            <li class="d-flex align-items-center">
+                                                <div class="check-icon check-icon-sm amber-gradient me-2">
+                                                    <i class="bi bi-check-circle-fill text-white small"></i>
+                                                </div>
+                                                <span class="small">Brand style guide</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-footer bg-white border-0 p-4">
+                                        <div class="d-flex">
+                                            <a href="#/service-details" class="btn btn-outline-mint me-2 flex-grow-1">Learn More</a>
+                                            <button class="btn btn-mint flex-grow-1">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Service 3 -->
+                            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                                <div class="card service-card h-100">
+                                    <div class="service-card-header mint-gradient"></div>
+                                    <div class="card-body p-4">
+                                        <div class="service-icon mint-gradient text-white mb-3">
+                                            <i class="bi bi-instagram fs-3"></i>
+                                        </div>
+                                        <h3 class="card-title fs-5 fw-bold text-mint mb-3">Social Media Strategy</h3>
+                                        <p class="card-text text-muted mb-3">Strategic social media plan to increase your brand visibility and engagement.</p>
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <span class="fw-bold fs-5">GHS 900</span>
+                                            <span class="badge bg-info text-dark">New</span>
+                                        </div>
+                                        <ul class="list-unstyled mb-4">
+                                            <li class="d-flex align-items-center mb-2">
+                                                <div class="check-icon check-icon-sm amber-gradient me-2">
+                                                    <i class="bi bi-check-circle-fill text-white small"></i>
+                                                </div>
+                                                <span class="small">Platform selection</span>
+                                            </li>
+                                            <li class="d-flex align-items-center mb-2">
+                                                <div class="check-icon check-icon-sm amber-gradient me-2">
+                                                    <i class="bi bi-check-circle-fill text-white small"></i>
+                                                </div>
+                                                <span class="small">Content calendar (3 months)</span>
+                                            </li>
+                                            <li class="d-flex align-items-center mb-2">
+                                                <div class="check-icon check-icon-sm amber-gradient me-2">
+                                                    <i class="bi bi-check-circle-fill text-white small"></i>
+                                                </div>
+                                                <span class="small">Hashtag strategy</span>
+                                            </li>
+                                            <li class="d-flex align-items-center">
+                                                <div class="check-icon check-icon-sm amber-gradient me-2">
+                                                    <i class="bi bi-check-circle-fill text-white small"></i>
+                                                </div>
+                                                <span class="small">Engagement tactics</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-footer bg-white border-0 p-4">
+                                        <div class="d-flex">
+                                            <a href="#/service-details" class="btn btn-outline-mint me-2 flex-grow-1">Learn More</a>
+                                            <button class="btn btn-mint flex-grow-1">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- More services would go here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Other tab panes would go here -->
+                    <div class="tab-pane fade" id="startup" role="tabpanel" aria-labelledby="startup-tab">
+                        <!-- Startup & Strategy services -->
+                    </div>
+                    
+                    <div class="tab-pane fade" id="branding" role="tabpanel" aria-labelledby="branding-tab">
+                        <!-- Personal Branding services -->
+                    </div>
+                    
+                    <div class="tab-pane fade" id="digital" role="tabpanel" aria-labelledby="digital-tab">
+                        <!-- Content & Digital Growth services -->
+                    </div>
+                </div>
+                
+                <!-- Package Comparison -->
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <h2 class="fs-4 fw-bold mb-4">Package Comparison</h2>
+                    </div>
+                    <div class="col-12" data-aos="fade-up">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table comparison-table mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" style="min-width: 200px;"></th>
+                                                <th scope="col" class="text-center" style="min-width: 200px;">
+                                                    <div class="py-3">
+                                                        <h3 class="fs-5 fw-bold text-mint mb-1">Starter</h3>
+                                                        <p class="mb-2">For new entrepreneurs</p>
+                                                        <span class="fs-4 fw-bold">GHS 300-500</span>
+                                                    </div>
+                                                </th>
+                                                <th scope="col" class="text-center bg-light" style="min-width: 200px;">
+                                                    <div class="py-3">
+                                                        <span class="badge bg-mint mb-2">Popular</span>
+                                                        <h3 class="fs-5 fw-bold text-mint mb-1">Growth</h3>
+                                                        <p class="mb-2">For established businesses</p>
+                                                        <span class="fs-4 fw-bold">GHS 1000-1200</span>
+                                                    </div>
+                                                </th>
+                                                <th scope="col" class="text-center" style="min-width: 200px;">
+                                                    <div class="py-3">
+                                                        <h3 class="fs-5 fw-bold text-mint mb-1">Premium</h3>
+                                                        <p class="mb-2">For scaling businesses</p>
+                                                        <span class="fs-4 fw-bold">GHS 1900-5500</span>
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Brand Strategy</th>
+                                                <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i></td>
+                                                <td class="text-center bg-light"><i class="bi bi-check-circle-fill text-success"></i></td>
+                                                <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Visual Identity</th>
+                                                <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i></td>
+                                                <td class="text-center bg-light"><i class="bi bi-check-circle-fill text-success"></i></td>
+                                                <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Social Media Strategy</th>
+                                                <td class="text-center"><i class="bi bi-dash-circle-fill text-muted"></i></td>
+                                                <td class="text-center bg-light"><i class="bi bi-check-circle-fill text-success"></i></td>
+                                                <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Content Creation</th>
+                                                <td class="text-center"><i class="bi bi-dash-circle-fill text-muted"></i></td>
+                                                <td class="text-center bg-light"><i class="bi bi-dash-circle-fill text-muted"></i></td>
+                                                <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Website Design</th>
+                                                <td class="text-center"><i class="bi bi-dash-circle-fill text-muted"></i></td>
+                                                <td class="text-center bg-light"><i class="bi bi-dash-circle-fill text-muted"></i></td>
+                                                <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Consultations</th>
+                                                <td class="text-center">2 sessions</td>
+                                                <td class="text-center bg-light">4 sessions</td>
+                                                <td class="text-center">8 sessions</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Revisions</th>
+                                                <td class="text-center">1 round</td>
+                                                <td class="text-center bg-light">2 rounds</td>
+                                                <td class="text-center">Unlimited</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"></th>
+                                                <td class="text-center">
+                                                    <button class="btn btn-outline-mint">Select</button>
+                                                </td>
+                                                <td class="text-center bg-light">
+                                                    <button class="btn btn-mint">Select</button>
+                                                </td>
+                                                <td class="text-center">
+                                                    <button class="btn btn-outline-mint">Select</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Include footer -->
+        <div id="footerContainer"></div>
+    </div>
+</div>
